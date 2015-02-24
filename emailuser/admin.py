@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.contrib import admin
 from django.contrib import messages
+from django.contrib.admin.util import flatten_fieldsets
 from django.contrib.auth.forms import AdminPasswordChangeForm
 from django.db import transaction
 from django.http import Http404
@@ -60,7 +61,7 @@ class EmailUserAdmin(admin.ModelAdmin):
         if obj is None:
             defaults.update({
                 'form': self.add_form,
-                'fields': admin.util.flatten_fieldsets(self.add_fieldsets),
+                'fields': flatten_fieldsets(self.add_fieldsets),
             })
         defaults.update(kwargs)
         return super(EmailUserAdmin, self).get_form(request, obj, **defaults)
