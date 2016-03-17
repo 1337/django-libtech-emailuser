@@ -2,7 +2,7 @@ from django import forms
 from django.conf import settings
 from django.contrib import admin
 from django.contrib import messages
-from django.contrib.admin.util import flatten_fieldsets
+from django.contrib.admin.utils import flatten_fieldsets
 from django.contrib.auth.forms import AdminPasswordChangeForm
 from django.db import transaction
 from django.http import Http404
