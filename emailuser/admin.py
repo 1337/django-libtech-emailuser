@@ -67,11 +67,11 @@ class EmailUserAdmin(admin.ModelAdmin):
         return super(EmailUserAdmin, self).get_form(request, obj, **defaults)
 
     def get_urls(self):
-        from django.conf.urls import patterns
-        return patterns('',
-                        (r'^(\d+)/password/$',
-                         self.admin_site.admin_view(self.user_change_password))
-                        ) + super(EmailUserAdmin, self).get_urls()
+        from django.conf.urls import url
+        return [
+            url(r'^(\d+)/password/$',
+             self.admin_site.admin_view(self.user_change_password))
+        ] + super(EmailUserAdmin, self).get_urls()
 
     @sensitive_post_parameters_m
     @csrf_protect_m
