@@ -9,7 +9,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '__latest__'),
+        ('auth', '0007_alter_validators_add_error_messages'),
     ]
 
     operations = [
