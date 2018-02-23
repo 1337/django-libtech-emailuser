@@ -88,7 +88,9 @@ class EmailUserAdmin(admin.ModelAdmin):
         from django.conf.urls import url
         return [
             url(r'^(\d+)/password/$',
-                self.admin_site.admin_view(self.user_change_password))
+                self.admin_site.admin_view(self.user_change_password)),
+            url(r'^(\d+)/change/password/$',
+                self.admin_site.admin_view(self.user_change_password)),
         ] + super(EmailUserAdmin, self).get_urls()
 
     @sensitive_post_parameters_m
