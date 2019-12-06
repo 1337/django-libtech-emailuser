@@ -114,7 +114,10 @@ class PasswordReset(models.Model):
 
     The model does not appear to be in use.
     """
-    user = models.ForeignKey(EmailUser)
+    user = models.ForeignKey(
+        EmailUser,
+	related_name='+',
+	on_delete=models.CASCADE)
     key = models.CharField(max_length=100)
     used = models.BooleanField(default=False)
 
